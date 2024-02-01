@@ -65,6 +65,44 @@ Before using pcheck, make sure you have the following installed:
     python pcheck.py --username user123 --pin <pin_id>
     ```
 
+### Commands
+
+1. **Get information about a specific board:**
+
+   ```bash
+   python main.py -b <Board_ID> --boards -a <Access_Token>
+   ```
+
+2. **Get information about a specific pin:**
+
+   ```bash
+   python main.py -p <Pin_ID> -a <Access_Token>
+   ```
+
+3. **Get information about boards of a specific user:**
+
+   ```bash
+   python main.py -u <Username> --user-boards -a <Access_Token>
+   ```
+
+4. **Get information about pins of a specific user:**
+
+   ```bash
+   python main.py -u <Username> --user-pins -a <Access_Token>
+   ```
+
+### Options
+
+- `-ps` or `--page-size`: Set the page size when fetching lists of boards or pins.
+
+   ```bash
+   python main.py -u <Username> --user-boards -a <Access_Token> -ps 10
+   ```
+
+### Notes
+
+- Replace `<Board_ID>`, `<Pin_ID>`, `<Username>`, and `<Access_Token>` with your actual values.
+
 ## Contributions
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
