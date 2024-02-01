@@ -116,11 +116,8 @@ python main.py --pin-id PIN_ID
 ### Note
 
 Replace `<BOARD_ID>` and `<PIN_ID>` with the actual board and pin identifiers. -->
-### Pinterest Information Retrieval Tool
 
-This Python script serves as a command-line tool for retrieving information from Pinterest. It provides functionality to gather details about boards, pins, user boards, and user pins through the Pinterest API.
-
-#### Usage
+### Usage
 
 ```bash
 python main.py <action> -id <identifier> [-a <access-token>] [-l <log-level>]
