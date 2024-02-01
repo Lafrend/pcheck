@@ -41,57 +41,81 @@ Before using pcheck, make sure you have the following installed:
     pip install -r requirements.txt
     ```
 
-### Examples
+### Usage
 
-- Retrieve information about a user's boards:
+#### Main Script (main.py)
 
-    ```bash
-    python pcheck.py --username user123 --boards
-    ```
+The `main.py` script serves as the entry point for interacting with the Pinterest API through various specialized scripts.
 
-- Get details about a specific pin:
+##### Retrieving User Boards
 
-    ```bash
-    python pcheck.py --username user123 --pin <pin_id>
-    ```
+To retrieve information about user boards, use the following command:
 
-### Commands
+```bash
+python main.py --user-boards [--page-size PAGE_SIZE] [--include-empty | --no-include-empty] [--include-archived | --no-include-archived]
+```
 
-1. **Get information about a specific board:**
+- `--page-size`: Specify the number of boards per page (default is 25).
+- `--include-empty` or `--no-include-empty`: Include or exclude empty boards.
+- `--include-archived` or `--no-include-archived`: Include or exclude archived boards.
 
-   ```bash
-   python main.py -b <Board_ID> --boards -a <Access_Token>
-   ```
+##### Retrieving User Pins
 
-2. **Get information about a specific pin:**
+To retrieve information about user pins, use the following command:
 
-   ```bash
-   python main.py -p <Pin_ID> -a <Access_Token>
-   ```
+```bash
+python main.py --user-pins [--page-size PAGE_SIZE]
+```
 
-3. **Get information about boards of a specific user:**
+- `--page-size`: Specify the number of pins per page (default is 25).
 
-   ```bash
-   python main.py -u <Username> --user-boards -a <Access_Token>
-   ```
+##### Retrieving Board Information
 
-4. **Get information about pins of a specific user:**
+To retrieve information about a specific board, use the following command:
 
-   ```bash
-   python main.py -u <Username> --user-pins -a <Access_Token>
-   ```
+```bash
+python main.py --board-id BOARD_ID [--pins]
+```
 
-### Options
+- `--pins`: Include this flag to also retrieve information about each pin on the board.
 
-- `-ps` or `--page-size`: Set the page size when fetching lists of boards or pins.
+##### Retrieving Pin Information
 
-   ```bash
-   python main.py -u <Username> --user-boards -a <Access_Token> -ps 10
-   ```
+To retrieve information about a specific pin, use the following command:
 
-### Notes
+```bash
+python main.py --pin-id PIN_ID
+```
 
-- Replace `<Board_ID>`, `<Pin_ID>`, `<Username>`, and `<Access_Token>` with your actual values.
+#### Examples
+
+- Retrieve information about user boards:
+
+  ```bash
+  python main.py --user-boards --page-size 50 --include-archived
+  ```
+
+- Retrieve information about a specific board and its pins:
+
+  ```bash
+  python main.py --board-id <BOARD_ID> --pins
+  ```
+
+- Retrieve information about user pins:
+
+  ```bash
+  python main.py --user-pins --page-size 50
+  ```
+
+- Retrieve information about a specific pin:
+
+  ```bash
+  python main.py --pin-id <PIN_ID>
+  ```
+
+### Note
+
+Replace `<BOARD_ID>` and `<PIN_ID>` with the actual board and pin identifiers.
 
 ## Contributions
 
