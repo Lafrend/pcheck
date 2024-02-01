@@ -15,7 +15,7 @@ def main(argv=[]):
     parser.add_argument("action", choices=["board", "pin", "user_boards", "user_pins"], help="Specify the action to perform")
     parser.add_argument("-id", "--identifier", required=True, help="Identifier of the board or pin")
     parser.add_argument("-a", "--access-token", help="Access token for Pinterest API")
-    parser.add_argument("--log-level", default="ERROR", choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"], help="Set the logging level")
+    parser.add_argument("-l", "--log-level", default="2", choices=["1", "2", "3", "4", "5"], help="Set the logging level")
     args = parser.parse_args(argv)
 
     if args.action == "board":
@@ -29,3 +29,48 @@ def main(argv=[]):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
+# import argparse
+# import subprocess
+
+# def main():
+#     parser = argparse.ArgumentParser(description="Pinterest Data Retrieval")
+#     subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+#     # Subparser for get_board command
+#     get_board_parser = subparsers.add_parser("get_board")
+#     get_board_parser.add_argument("-b", "--board-id", required=True, help="Board identifier")
+#     get_board_parser.add_argument("--pins", action="store_true", help="Get information about each pin on the board")
+
+#     # Subparser for get_pin command
+#     get_pin_parser = subparsers.add_parser("get_pin")
+#     get_pin_parser.add_argument("-p", "--pin-id", required=True, help="Pin identifier")
+
+#     # Subparser for get_user_boards command
+#     get_user_boards_parser = subparsers.add_parser("get_user_boards")
+#     get_user_boards_parser.add_argument("-ps", "--page-size", default=25, type=int, help="Boards per page")
+#     get_user_boards_parser.add_argument("--include-empty", action="store_true", help="Include empty boards")
+#     get_user_boards_parser.add_argument("--no-include-empty", action="store_true", help="Do not include empty boards")
+#     get_user_boards_parser.add_argument("--include-archived", action="store_true", help="Include archived boards")
+#     get_user_boards_parser.add_argument("--no-include-archived", action="store_true", help="Do not include archived boards")
+
+#     # Subparser for get_user_pins command
+#     get_user_pins_parser = subparsers.add_parser("get_user_pins")
+#     get_user_pins_parser.add_argument("-ps", "--page-size", default=25, type=int, help="Pins per page")
+
+#     args = parser.parse_args()
+
+#     # Build the command based on the chosen subcommand
+#     command = f"python script/{args.command}.py"
+#     for arg, value in vars(args).items():
+#         if value is True:
+#             command += f" --{arg.replace('_', '-')}"
+#         elif value is False:
+#             command += f" --no-{arg.replace('_', '-')}"
+
+#         elif value is not None:
+#             command += f" --{arg.replace('_', '-')} {value}"
+
+#     subprocess.run(command, shell=True)
+
+# if __name__ == "__main__":
+#     main()
