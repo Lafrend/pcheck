@@ -41,16 +41,6 @@ Before using pcheck, make sure you have the following installed:
     pip install -r requirements.txt
     ```
 
-### Usage
-
-1. Run pcheck with the desired Pinterest username:
-
-    ```bash
-    python pcheck.py --username <pinterest_username>
-    ```
-
-2. Follow the on-screen instructions to retrieve information about boards and pins.
-
 ### Examples
 
 - Retrieve information about a user's boards:
