@@ -18,7 +18,7 @@ pcheck is a user-friendly command-line tool designed to retrieve information abo
 
 Before using pcheck, make sure you have the following installed:
 
-- [Python](https://www.python.org/) (version 3.6 or higher)
+- [Python](https://www.python.org/) (version 3.7 or higher)
 - [pip](https://pip.pypa.io/en/stable/)
 
 ### Installation
