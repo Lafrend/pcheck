@@ -41,7 +41,7 @@ Before using pcheck, make sure you have the following installed:
     pip install -r requirements.txt
     ```
 
-### Usage
+<!-- ### Usage
 
 #### Main Script (main.py)
 
@@ -115,8 +115,58 @@ python main.py --pin-id PIN_ID
 
 ### Note
 
-Replace `<BOARD_ID>` and `<PIN_ID>` with the actual board and pin identifiers.
+Replace `<BOARD_ID>` and `<PIN_ID>` with the actual board and pin identifiers. -->
+### Pinterest Information Retrieval Tool
 
+This Python script serves as a command-line tool for retrieving information from Pinterest. It provides functionality to gather details about boards, pins, user boards, and user pins through the Pinterest API.
+
+#### Usage
+
+```bash
+python main.py <action> -id <identifier> [-a <access-token>] [-l <log-level>]
+```
+
+#### Arguments
+
+- `<action>`: Specify the action to perform. Available options:
+  - `board`: Retrieve information about a specific board.
+  - `pin`: Retrieve information about a specific pin.
+  - `user_boards`: Retrieve information about boards associated with a user.
+  - `user_pins`: Retrieve information about pins associated with a user.
+
+- `-id, --identifier <identifier>`: Identifier of the board or pin. Required for all actions.
+
+- `-a, --access-token <access-token>`: Access token for Pinterest API. Optional.
+
+- `-l, --log-level <log-level>`: Set the logging level. Options: "1" (DEBUG), "2" (INFO), "3" (WARNING), "4" (ERROR), "5" (CRITICAL). Default: "2" (INFO).
+
+#### Examples
+
+1. Retrieve information about a specific board with identifier "12345":
+
+   ```bash
+   python main.py board -id 12345 -a <your-access-token>
+   ```
+
+2. Retrieve information about a specific pin with identifier "67890":
+
+   ```bash
+   python main.py pin -id 67890 -a <your-access-token>
+   ```
+
+3. Retrieve information about boards associated with a user:
+
+   ```bash
+   python main.py user_boards -id <user-identifier> -a <your-access-token> --log-level 3
+   ```
+
+4. Retrieve information about pins associated with a user:
+
+   ```bash
+   python main.py user_pins -id <user-identifier> -a <your-access-token>
+   ```
+
+Ensure to replace `<your-access-token>` and `<user-identifier>` with your actual Pinterest API access token and user identifier. Adjust other parameters as needed for your specific use case.
 ## Contributions
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
