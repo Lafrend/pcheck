@@ -7,3 +7,4 @@
 # Игнорировать все файлы в корне проекта с именем "debug"
 # /debug
 /unscript
+.gitignore
